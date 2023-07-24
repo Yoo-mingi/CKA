@@ -1,0 +1,8 @@
+kubectl scale deployment/eshoporder --replicas=5 -n devops
+
+kubctl deployment nginx-app --image=nginx:1.11.12-alpha --replicas=3 --dry-run=clien -o yaml
+
+kubectl apply -f=2.11.yaml --record   # 1
+kubectl set image deployment/nginx-app nginx=nginx:1.11.13-alpha --record # 2
+
+kubectl set image deployments/kubernetes-bootcamp {containername}=jocatalin/kubernetes-bootcamp:v2

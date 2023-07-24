@@ -1,0 +1,34 @@
+멀티 컨데이너.
+spec:
+  containers:
+  - name: conone
+    image: nginx
+  - name: contwo
+    image: debian
+
+  command: ["/bin/sh"]
+
+
+apiversion: 어쩌구
+kind: Deoployment
+metadata:
+  name: 디플로이먼트일
+spec:
+  replicas: 2
+  selector:
+    matchLababels:
+      라벨키: 라벨벨류
+  temaplte:
+    metadata:
+      labels:
+        라벨키: 라벨벨류
+    spec: 
+      containers:
+      - name: 컨테이너1
+        image: nxinx
+        lable
+
+
+kubectl set image deployment deploymentname containername=inginx:1.15 --record
+kubectl rollout history deployment deploymentname
+kubectl rollout undo deployment deploymentname

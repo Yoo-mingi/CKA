@@ -1,0 +1,27 @@
+인스톨은 실행파일을 받거나, Script로 된 것을 실행한다.
+쉘 스크립트 파일을 받고 권한 부여하고 실행하면 설치 완료.
+
+artifacthub < 에서 사용하고자 하는 차트 검색.
+
+ex) wordpress: 
+  helm repo add bitnami thhp://ckarts.bit.... # 레포지토리에 bitnami 추가
+  helm search repo bitnami
+  helm install my-release bitnami/worpress # 명령어 이름 레포지토리/차트
+  kubectl get pod #위에서 설치된 my-release 있음
+  kubectl get svc
+  kubectl get secret
+  kubectl get pvc....
+
+  # 수정을 위해서는 value 값을 알아햐마.
+  kubectl get pod < 한개의 pod 확인.
+  vi myvalues.yaml 
+    replicaCount: 3
+  
+  helm upgrade my-release bitnami/wordpress -f myvalues.yaml
+  or
+  helm upgrade my-release --set replicaCount=3
+
+  kubectl get secret
+  # helm은 secret 기반으로 관리되기에 revision별로 시크릿이 있는걸 확인할 수 있다.
+
+  helm get values my-release {--revision n}
